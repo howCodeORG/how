@@ -62,8 +62,8 @@ class Route {
     }
     // Join the array back into a string.
     $route = implode($route_components, '/');
-    // Register the route.
-    self::registerRoute($route);
+    // Return the route.
+    return $route;
   }
 
   // Register the route and run the closure using __invoke().
@@ -73,6 +73,7 @@ class Route {
         self::registerRoute($route);
         $closure->__invoke();
       } else if ($_GET['url'] == explode('/', $route)[0]) {
+        self::registerRoute(self::dyn($route));
         $closure->__invoke();
       }
   }

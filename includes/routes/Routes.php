@@ -39,6 +39,5 @@ Route::set('about-us', function() {
  * this route would display a users profile page.
 */
 Route::set('user/<1>', function() {
-  Route::dyn('user/<1>');
   View::make('UserProfile');
 });
