@@ -1,5 +1,4 @@
 <?php
-
 /*
  * How - The program that powers howCode.org
  * Copyright (C) 2016
@@ -22,9 +21,14 @@
  * The first thing we do is autoload all of our classes. We're using the older
  * __autoload function as opposed to spl_autoload_register because all of our
  * classes are located in the /includes/classes/ directory.
+ *
 */
-
-include_once( './includes/_Globals.php' );
+require_once( './includes/_Globals.php' );
+/*
+ * By including routes/Routes.php we get access to the $Routes
+ * array containing all of the valid routes for our app.
+*/
+require_once( './includes/routes/Routes.php' );
 
 function __autoload($class_name) {
       require_once './includes/classes/'.$class_name.'.php';

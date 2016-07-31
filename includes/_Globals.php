@@ -1,5 +1,4 @@
 <?php
-
 /*
  * How - The program that powers howCode.org
  * Copyright (C) 2016

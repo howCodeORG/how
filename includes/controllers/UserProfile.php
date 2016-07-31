@@ -18,8 +18,7 @@
  *
  * https://howcode.org
  *
- */
-
-class RootController {
+*/
+class UserProfile {
 
 }

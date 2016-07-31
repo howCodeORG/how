@@ -1,5 +1,4 @@
 <?php
-
 /*
  * How - The program that powers howCode.org
  * Copyright (C) 2016
@@ -19,10 +18,7 @@
  *
  * https://howcode.org
  *
- * By including routes/Routes.php we get access to the $Routes
- * array containing all of the valid routes for our app.
 */
-include_once( './includes/routes/Routes.php' );
 
 class How {
 
@@ -51,15 +47,8 @@ class How {
   */
   public function run() {
 
-      try {
-
+        // Should be capturing the output of this method. We will at some point.
         $this->getRoute();
-
-      } catch (Exception $e) {
-
-        die( 'Failed to get route.' );
-
-      }
   }
 
 }

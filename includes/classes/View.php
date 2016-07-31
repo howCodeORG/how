@@ -1,5 +1,4 @@
 <?php
-
 /*
  * How - The program that powers howCode.org
  * Copyright (C) 2016
@@ -30,17 +29,10 @@ class View {
   public static function make($view) {
 
     if (Route::isRouteValid()) {
-      try {
         // Create the view and the view controller.
-        include( './includes/controllers/'.$view.'.php' );
-        include('./includes/views/'.$view.'.php');
+        require_once( './includes/controllers/'.$view.'.php' );
+        require_once( './includes/views/'.$view.'.php' );
         return 1;
-
-      } catch ( Exception $e ) {
-
-        return 0;
-
-      }
     }
 
   }

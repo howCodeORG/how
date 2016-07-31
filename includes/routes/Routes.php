@@ -1,5 +1,4 @@
 <?php
-
 /*
  * How - The program that powers howCode.org
  * Copyright (C) 2016
@@ -27,10 +26,19 @@
  * include_once( './includes/classes/View.php' );
 */
 
+// This is the index page. The first route.
 Route::set('', function() {
   View::make('Root');
 });
-
+// This is a test route, leading to an about-us page.
 Route::set('about-us', function() {
-
+  View::make('AboutUs');
+});
+/*
+ * This is an example of a dynamic route. In this example,
+ * this route would display a users profile page.
+*/
+Route::set('user/<1>', function() {
+  Route::dyn('user/<1>');
+  View::make('UserProfile');
 });
