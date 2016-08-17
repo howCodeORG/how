@@ -1,0 +1,56 @@
+<?php
+/*
+ * How - The program that powers howCode.org
+ * Copyright (C) 2016
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * https://howcode.org
+ *
+*/
+
+class Login {
+
+  private static function getID($username) {
+    return DB::query("SELECT id FROM users WHERE username=:username", array(':username'=>$username))[0]['id'];
+  }
+
+  private static function generateRandom($length = 64) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+  public static function loginUser($username) {
+    $tok = self::generateRandom();
+
+    setcookie("SSID", $tok, time() + 3600, BASEDIR);
+
+    return DB::query("INSERT INTO login_tokens VALUES ('',:token,:uid)", array(':uid'=>self::getID($username), ':token'=>sha1($tok)));
+  }
+
+  public static function isLoggedIn() {
+    if (isset($_COOKIE['SSID'])) {
+      
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+}

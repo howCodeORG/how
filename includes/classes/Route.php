@@ -30,7 +30,7 @@ class Route {
     global $Routes;
     $uri = $_SERVER['REQUEST_URI'];
 
-    if (!in_array($uri, $Routes)) {
+    if (!in_array(explode('?',$uri)[0], $Routes)) {
       return 0;
     } else {
       return 1;
@@ -68,8 +68,10 @@ class Route {
 
   // Register the route and run the closure using __invoke().
   public static function set($route, $closure) {
-    //if (strpos($route, '/') === false) {
       if ($_SERVER['REQUEST_URI'] == BASEDIR.$route) {
+        self::registerRoute($route);
+        $closure->__invoke();
+      } else if (explode('?', $_SERVER['REQUEST_URI'])[0] == BASEDIR.$route) {
         self::registerRoute($route);
         $closure->__invoke();
       } else if ($_GET['url'] == explode('/', $route)[0]) {

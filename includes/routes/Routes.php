@@ -24,6 +24,10 @@
  *
  * include_once( './includes/classes/Route.php' );
  * include_once( './includes/classes/View.php' );
+ *
+ * Probably shouldn't be calling the View directly from the route, should
+ * be calling the controller and then allow the controller to call the route.
+ * Will probably change this in the future.
 */
 
 // This is the index page. The first route.
@@ -33,6 +37,10 @@ Route::set('', function() {
 // This is a test route, leading to an about-us page.
 Route::set('about-us', function() {
   View::make('AboutUs');
+});
+// This is a route for the User Login / Registration popup.
+Route::set('popups/user-login', function() {
+  View::make('popupUserLogin');
 });
 /*
  * This is an example of a dynamic route. In this example,

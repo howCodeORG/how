@@ -20,35 +20,16 @@
  *
 */
 
-class How {
+class URI {
 
-  /*
-   * getRoute() is the method that actually checks if the current
-   * route is valid or not.
-  */
-  public function getRoute() {
+  public static function get($param) {
 
-    global $Routes;
-    $uri = $_SERVER['REQUEST_URI'];
-
-    // Check if the route is in $Routes
-    if (!in_array(explode('?',$uri)[0], $Routes)) {
-      die( 'Invalid route.' );
+    if (strpos($_SERVER['REQUEST_URI'], '?') !== false) {
+      return explode('&', explode($param.'=', $_SERVER['REQUEST_URI'])[1])[0];
+    } else {
+      return false;
     }
 
-    return $uri;
-
-  }
-
-  /*
-   * The run() method is the first method that runs.
-   * run() gets the current route and checks if it is valid.
-   * If the route is invalid the app doesn't proceed any further.
-  */
-  public function run() {
-
-        // Should be capturing the output of this method. We will at some point.
-        $this->getRoute();
   }
 
 }

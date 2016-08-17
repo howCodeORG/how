@@ -20,35 +20,21 @@
  *
 */
 
-class How {
+class DB {
 
-  /*
-   * getRoute() is the method that actually checks if the current
-   * route is valid or not.
-  */
-  public function getRoute() {
+  private static function con() {
 
-    global $Routes;
-    $uri = $_SERVER['REQUEST_URI'];
-
-    // Check if the route is in $Routes
-    if (!in_array(explode('?',$uri)[0], $Routes)) {
-      die( 'Invalid route.' );
-    }
-
-    return $uri;
-
+    $pdo = new PDO('mysql:host=127.0.0.1;dbname=howCode;charset=utf8', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $pdo;
   }
 
-  /*
-   * The run() method is the first method that runs.
-   * run() gets the current route and checks if it is valid.
-   * If the route is invalid the app doesn't proceed any further.
-  */
-  public function run() {
-
-        // Should be capturing the output of this method. We will at some point.
-        $this->getRoute();
+  public static function query($query, $params = array()) {
+    $stmt = self::con()->prepare($query);
+    $stmt->execute($params);
+    $data = $stmt->fetchAll();
+    return $data;
   }
 
 }

@@ -1,0 +1,144 @@
+.wrap {
+  width: 1000px;
+  margin: 0px auto;
+}
+.logo {
+  margin: 0px auto 0px;
+  width: 100px;
+  padding-top: 20px;
+}
+.rightmenu {
+  position: absolute;
+  right: 0px;
+  top: 22px;
+  border-bottom-right-radius: 2px;
+}
+.leftmenu {
+  position: absolute;
+  left: 0px;
+  top: 22px;
+  border-bottom-right-radius: 2px;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.menu ul > li {
+  float: left;
+  color: #414d59;
+  font-weight: normal;
+  padding: 0px;
+  font-size: 18px;
+}
+.menu a {
+  padding: 24px;
+  text-decoration: none;
+  color: #414d59;
+}
+.menu a:hover {
+  background-color: #eaeaea;
+}
+.searchBox {
+  height: 70px;
+  width: 250px;
+  background-color: #f9f9f9;
+  position: absolute;
+  top: 0px;
+  right: 72px;
+  display: none;
+}
+.searchBox input[type="text"] {
+  outline: none;
+  border: 0px;
+  font-size: 18px;
+  height: 68px;
+  width: 230px;
+  background-color: transparent;
+  padding: 0px 10px;
+  margin: 0px auto;
+  color: #464646;
+  position: relative;
+  overflow: hidden;
+}
+.popup {
+  width: 600px;
+  margin: 0px auto;
+  background-color: #FFF;
+  padding: 5px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 5px 26px 0px rgba(0,0,0,0.22),0px 20px 28px 0px rgba(0,0,0,0.30);
+  border-radius: 2px;
+  height: 400px;
+  display: none;
+}
+.popupbg {
+  background-color: #333;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  display: none;
+}
+.loadingspinner {
+  height: 28px;
+  width: 28px;
+  margin: 186px auto;
+  display: none;
+}
+.popupcontainer {
+  width: 600px;
+}
+.bottom-right-but {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.bottom-left-but {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+.center-but {
+
+}
+.notice {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 2px;
+  color: #212121;
+}
+.noticeblue {
+  background-color: #daf3ff;
+}
+.noticeyellow {
+  background-color: #FFF9C4;
+}
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+}
+input[type="text"], input[type="password"] {
+  border: 1px solid rgba(0,0,0,.12) !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, Sans-serif;
+  margin: 0px !important;
+  text-align: center;
+  color: #414d59;
+}
+header {
+  color: #565656;
+  background: 1px #fff;
+  border-bottom: solid #ccc;
+  border-width: 0 1px 1px;
+  height: 70px;
+  border-top: 0px;
+  position: relative;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
